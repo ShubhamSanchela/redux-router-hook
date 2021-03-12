@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from "react-redux"
-import {buyBook} from '../redux/index';
+import { buyBook } from '../redux/index';
 
 function BookConatainer(props) {
+    const [number, setNumber] = useState(1)
     return (
         <div>
             <h1>Number of Books : {props.numberOfBooks} </h1>
-            <button onClick={props.buyBook} >Buy Book</button>
+            <input type="text" value={number} onChange={e => setNumber(e.target.value)} />
+            <button onClick={() => props.buyBook(number)} >Buy {number} Book</button>
         </div>
     )
 }
@@ -19,8 +21,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        buyBook : function(){
-            dispatch(buyBook());
+        buyBook : function(number){
+            dispatch(buyBook(number));
         }
     }
 }
