@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Menu from "./components/Menu";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import BookConatainer from "./components/BookConatainer";
+import { Provider } from "react-redux"
+import store from "./redux/Store"
+import HookBookContainer from "./components/HookBookContainer";
+console.log(store)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Provider store={store}>
+        <div className="App">
+          <BookConatainer />
+          <HookBookContainer />
+        </div>
+        </Provider>
+        {/* <Menu />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          </Switch>
+          <Footer /> */}
+      </div>
+    </BrowserRouter>
   );
 }
 

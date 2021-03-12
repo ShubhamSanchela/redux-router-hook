@@ -1,0 +1,10 @@
+.home-style{
+    width: 100%;
+    height: 100px;
+    background-color: palevioletred;
+    color: crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
